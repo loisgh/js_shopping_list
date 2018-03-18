@@ -20,13 +20,17 @@
         
     function newItem(){
       var text_to_add = document.getElementById("item").value;
-      var ul = document.getElementById("the_list");
-      var li = document.createElement("li");
-      li.textContent = text_to_add;
-      li.id = id_no;
-      li.onclick = function() { li.parentNode.removeChild(li); };
-      ul.appendChild(li);
-      id_no += 1;
+      if (text_to_add.length > 0){
+        var ul = document.getElementById("the_list");
+        var li = document.createElement("li");
+        li.textContent = text_to_add;
+        li.id = id_no;
+        li.onclick = function() { li.parentNode.removeChild(li); };
+        ul.appendChild(li);
+        id_no += 1;
+      }else{
+        alert("You must enter an item if you want to add it to the list.");
+      }
       document.getElementById("item").value = "";
       document.getElementById("item").focus();
     }
